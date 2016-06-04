@@ -1,0 +1,8 @@
+//restauration de la db wordpress
+mysql -u wordpress -h 172.17.0.3 -p wordpress < madb.sql 
+
+// Build image
+docker build -t="webserver1" .
+ 
+// Run container
+docker run -p 8080:80 -v /var/www/html:/usr/share/nginx/www --name webserver1 -d webserver1
