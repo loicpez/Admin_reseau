@@ -1,0 +1,27 @@
+
+server {
+        listen   80;
+        server_name  www.wt15.ephec-ti.be;
+
+        location / {
+                proxy_pass         http://51.255.40.21/;
+        }
+}
+
+server {
+        listen   80;
+        server_name  b2b.wt15.ephec-ti.be;
+        location / {
+                proxy_pass         http://51.255.40.21:8080/;
+        }
+}
+server {
+        listen   80;
+        server_name  intra.wt15.ephec-ti.be;
+        location / {
+allow 193.190.65.65;
+deny all;
+       proxy_pass         http://51.255.42.254/;
+        }
+}
+
